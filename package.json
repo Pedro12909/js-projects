@@ -10,6 +10,12 @@
   "author": "Pedro Portela",
   "license": "ISC",
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "live-server": "^1.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
