@@ -1,0 +1,15 @@
+{
+  "name": "js-projects",
+  "version": "1.0.0",
+  "description": "A collection of javascript web apps.",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "live-server ."
+  },
+  "keywords": [],
+  "author": "Pedro Portela",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
