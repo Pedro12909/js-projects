@@ -1,0 +1,67 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fafafa;
+}
+
+main {
+    padding: 10px 30px;
+    width: 50%;
+    margin: 60px auto;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 30px 11px rgba(0,0,0,0.18);
+    -moz-box-shadow: 0px 0px 30px 11px rgba(0,0,0,0.18);
+    box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.10);
+    background-color: white;
+}
+
+li {
+    width: 100%;
+    background-color:  rgba(129, 199, 132, 0.2);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.checkBtn {
+    margin-left: 2%;
+}
+
+.todoText {
+    margin-left: 5%;
+}
+
+.delBtn {
+    margin-left: auto;
+    margin-right: 2%;
+}
+
+#header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#todoList {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+#addInput {
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 200;
+    border: 3px solid rgba(165, 165, 165, 0.2);
+    border-radius: 8px;
+    transition: border 0.5s;
+}
+
+#addInput:matches(:hover, :focus) {
+    outline: none;
+    border: 3px solid rgb(129, 199, 132);
+}
