@@ -1,7 +1,12 @@
+:root {
+    --primary: rgb(200, 80, 60);
+    --checked: rgb(71, 185, 71);
+}
+
 body {
     height: 100vh;
     display: flex;
-    background-color: rgb(200, 80, 60);
+    background-color: var(--primary);
     justify-content: center;
     font-family: 'Open Sans', sans-serif;
 }
@@ -18,7 +23,9 @@ header i {
 }
 
 main {
-    width: 70%;
+    width: 50%;
+    font-size: 1.3rem;
+    font-weight: 300;
 }
 
 ul {
@@ -30,22 +37,18 @@ li {
 }
 
 button {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     border: 2px solid;
-    border-radius: 3px;
+    border-radius: 3rem;
     background-color: white;
-}
-
-.checkBtn {
-    border-color: limegreen;
-    color: limegreen;
 }
 
 .container {
     padding: 20px 30px;
     background-color: white;
     border-radius: 15px;
+    box-shadow: 0px 0px 26px 7px rgba(0,0,0,0.33);
 }
 
 .container hr {
@@ -68,6 +71,34 @@ button {
     margin-right: 1rem;
 }
 
+.checkBtn {
+    border-color: rgba(136, 136, 136, 0.548);
+    transition: all 0.1s;
+    color: white;
+    cursor: pointer;
+}
+
+.checkBtn.checked {
+    border-color: var(--checked);
+    background-color: var(--checked);
+}
+
+.delBtn {
+    border-color: red;
+    color: red;
+    transition: all 0.1s;
+}
+
+.delBtn:hover {
+    cursor: pointer;
+    background-color: var(--primary);
+    color: white;
+}
+
+.striked {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
 
 #title {
     font-size: 40px;

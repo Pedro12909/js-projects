@@ -10,9 +10,9 @@ items.forEach(item => {
     todoList.appendChild(createListItemElement(item));
 });
 
-function checkItemHandler(icon) {
-    icon.classList.toggle('fa-check')
-    icon.classList.toggle('fa-lg')
+function checkItemHandler(btn, text) {
+    btn.classList.toggle('checked');
+    text.classList.toggle('striked');
 }
 
 function addItemHandler(event) {
@@ -57,13 +57,16 @@ function createListItemElement(name) {
 
     // Check Icon
     const checkIcon = document.createElement('i');
-    checkIcon.classList.add('fa');
+    checkIcon.classList.add('fa', 'fa-check', 'fa-2x');
 
+    // Delete Icon
+    const delIcon = document.createElement('i');
+    delIcon.classList.add('fa', 'fa-trash', 'fa-2x');
+    
     // Check Button
     const checkBtn = document.createElement('button');
     checkBtn.classList.add('checkBtn');
     checkBtn.type = 'button';
-    checkBtn.addEventListener('click', () => checkItemHandler(checkIcon));
     checkBtn.appendChild(checkIcon);
     checkAndTextEl.appendChild(checkBtn);
 
@@ -72,6 +75,8 @@ function createListItemElement(name) {
     text.innerText = name;
     checkAndTextEl.appendChild(text);
 
+    checkBtn.addEventListener('click', () => checkItemHandler(checkBtn, text));
+
     row.appendChild(checkAndTextEl);
 
     // Remove Button
@@ -79,6 +84,7 @@ function createListItemElement(name) {
     delBtn.classList.add('delBtn');
     delBtn.type = 'button';
     delBtn.addEventListener('click', evt => deleteItemHandler(evt, name));
+    delBtn.appendChild(delIcon);
     row.appendChild(delBtn);
 
     li.appendChild(row);
