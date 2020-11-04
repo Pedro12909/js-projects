@@ -91,7 +91,7 @@ button {
 
 .delBtn:hover {
     cursor: pointer;
-    background-color: var(--primary);
+    background-color: red;
     color: white;
 }
 

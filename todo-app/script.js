@@ -7,12 +7,48 @@ const LOCAL_STORAGE_KEY = 'todo_app_item_list';
 let items = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
 
 items.forEach(item => {
-    todoList.appendChild(createListItemElement(item));
+    if (item.text) {
+        const liElement = createListItemElement(item.text);
+
+        if (item.checked === true) {
+            toggleRowChecked(liElement);
+        }
+
+        todoList.appendChild(liElement);
+    }
 });
 
-function checkItemHandler(btn, text) {
-    btn.classList.toggle('checked');
-    text.classList.toggle('striked');
+function hasDuplicate(name) {
+    const duplicate = false;
+
+    items.forEach(item => {
+        if (item.text === name) {
+            duplicate = true;
+        }
+    })
+
+    return duplicate;
+}
+
+function toggleRowChecked(liElement) {
+    const checkBtn = liElement.querySelector('.checkBtn');
+    const textEl = liElement.querySelector('.checkBtn + p');
+
+    checkBtn.classList.toggle('checked');
+    textEl.classList.toggle('striked');
+}
+
+function checkItemHandler(li) {
+    const value = li.querySelector('.checkBtn + p').textContent;
+
+    items.forEach(item => {
+        if (item.text === value) {
+            item.checked = !item.checked
+        }
+    });
+
+    toggleRowChecked(li);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
 }
 
 function addItemHandler(event) {
@@ -21,11 +57,13 @@ function addItemHandler(event) {
 
         if (inputBoxValue === '') return;
 
+        if (hasDuplicate(inputBoxValue)) return;
+
         // Append todoElement
         todoList.appendChild(createListItemElement(inputBoxValue));
         
         // Persist in local storage
-        items.push(inputBoxValue);
+        items.push({text: inputBoxValue, checked: false});
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
 
         // Reset input box value
@@ -40,7 +78,7 @@ function deleteItemHandler(event, name) {
     const ul = li.parentNode;
 
     // Persist in local storage
-    items = items.filter(item => item !== name)
+    items = items.filter(item => item.text !== name)
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
 
     ul.removeChild(li);
@@ -75,8 +113,6 @@ function createListItemElement(name) {
     text.innerText = name;
     checkAndTextEl.appendChild(text);
 
-    checkBtn.addEventListener('click', () => checkItemHandler(checkBtn, text));
-
     row.appendChild(checkAndTextEl);
 
     // Remove Button
@@ -88,6 +124,8 @@ function createListItemElement(name) {
     row.appendChild(delBtn);
 
     li.appendChild(row);
+
+    checkBtn.addEventListener('click', () => checkItemHandler(li));
     return li;
 }
 
