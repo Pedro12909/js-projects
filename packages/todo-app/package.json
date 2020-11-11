@@ -1,0 +1,12 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Todo list web app",
+  "main": "script.js",
+  "scripts": {
+    "build": "docker build -t $npm_package_name:$npm_package_version .",
+    "start": "docker run -d -p 8080:80 $npm_package_name:$npm_package_version ."
+  },
+  "author": "Pedro Portela <pedro12909@hotmail.com>",
+  "license": "ISC"
+}
