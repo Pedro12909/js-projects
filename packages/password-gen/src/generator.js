@@ -23,12 +23,28 @@ const getRandomSpecialChar = () => {
 const generatePassword = (options) => {
   const { hasUpperCase, hasLowerCase, hasNumbers, hasSpecial, length } = options;
 
+  if (length < 1) {
+    throw new Error('Invalid password length specified.')
+  }
+
+  let result = '';
+
   const callbacks = [];
 
   if (hasUpperCase) callbacks.push(getRandomUpperCaseLetter);
   if (hasLowerCase) callbacks.push(getRandomLowerCaseLetter);
   if (hasNumbers) callbacks.push(getRandomInteger);
   if (hasSpecial) callbacks.push(getRandomSpecialChar);
+
+  if (callbacks.length === 0) {
+    throw new Error('No options specified.');
+  }
+
+  for (let index = 0; index < length; index++) {
+    result += callbacks[randomIntFromInterval(0, callbacks.length - 1)]();
+  }
+
+  return result;
 };
 
 const validatePassword = (password, options) => {
