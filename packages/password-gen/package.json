@@ -1,0 +1,14 @@
+{
+  "name": "password-gen",
+  "version": "1.0.0",
+  "description": "A simple password generator",
+  "private": "true",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Pedro Portela <pedro12909@hotmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.4.0"
+  }
+}
