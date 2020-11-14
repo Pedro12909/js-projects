@@ -1,4 +1,4 @@
-const SPECIAL_CHARS = '§±!#$%&/()=?*@€+,.;:<>ºª-_|';
+const SPECIAL_CHARS = '§±!#$%&/()=?*@€+,.;:<>-_|';
 
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -47,7 +47,6 @@ const generatePassword = options => {
   }
 
   for (let index = 0; index < length; index++) {
-    console.log('Result', result);
     result += callbacks[randomIntFromInterval(0, callbacks.length - 1)]();
   }
 
