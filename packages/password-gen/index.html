@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Password Generator</title>
+    <meta name="description" content="A password generator web app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1><i class="fa fa-key fa-lg"></i>password generator</h1>
+    </header>
+    <main class="container">
+      <span id="result"></span>
+      <div class="buttons">
+        <div id="generateBtn">Generate</div>
+        <div id="copy">Copy to Clipboard</div>
+      </div>
+
+      <div class="options">
+        <input type="checkbox" checked="true" id="uppercase" name="uppercase" />
+        <label for="uppercase">Uppercase letters</label><br />
+
+        <input type="checkbox" checked="true" id="lowercase" name="lowercase" />
+        <label for="lowercase">Lowercase letters</label><br />
+
+        <input type="checkbox" checked="true" id="numbers" name="numbers" />
+        <label for="numbers">Numbers</label><br />
+
+        <input type="checkbox" id="specialChars" name="specialChars" />
+        <label for="specialChars">Special characters</label><br />
+
+        <p>Password length (<span id="sliderValue">16</span>)</p>
+        <input
+          type="range"
+          min="12"
+          max="128"
+          step="1"
+          value="16"
+          id="numCharsSlider"
+        />
+      </div>
+    </main>
+    <script src="./src/js/index.js"></script>
+  </body>
+</html>
