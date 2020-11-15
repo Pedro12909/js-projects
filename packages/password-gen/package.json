@@ -4,7 +4,8 @@
   "description": "A simple password generator",
   "private": "true",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "start:dev": "webpack-dev-server"
   },
   "author": "Pedro Portela <pedro12909@hotmail.com>",
   "license": "ISC",
