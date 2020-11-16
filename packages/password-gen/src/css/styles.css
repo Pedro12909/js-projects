@@ -26,14 +26,15 @@ header i {
 
 .container {
   font-size: 1.3rem;
-  padding: 2rem 0;
+  padding-top: 2rem;
   width: 35%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10%;
   background-color: #f0f0f0;
   border-radius: 1rem;
   box-shadow: 0px 0px 26px 7px rgba(0, 0, 0, 0.33);
+  overflow: hidden;
+  margin-bottom: 10%;
 }
 
 .buttons {
@@ -45,28 +46,44 @@ header i {
   justify-content: space-around;
   border: 1px rgb(211, 211, 211);
   border-style: solid none;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .buttons div {
   cursor: default;
   flex-grow: 1;
   text-align: center;
+  transition: all 0.3s;
 }
 
 .buttons div:hover {
-  background-color: #f0f0f06b;
+  background-color: var(--primary);
+  color: white;
 }
 
 .options {
+  border: 1px solid rgb(211, 211, 211);
+  border-style: solid none none none;
   background-color: white;
+  padding: 1rem 0;
+  font-size: 0.9em;
+}
+
+.options hr {
+  width: 95%;
+  opacity: 0.5;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
 }
 
 #result {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
-  width: 100%;
   word-wrap: break-word;
   white-space: normal;
-  margin-bottom: 1.5rem;
+  padding: 0 1rem;
 }

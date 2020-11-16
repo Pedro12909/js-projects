@@ -22,7 +22,7 @@
     <header>
       <h1><i class="fa fa-key fa-lg"></i>password generator</h1>
     </header>
-    <main class="container">
+    <div class="container">
       <span id="result"></span>
       <div class="buttons">
         <div id="generateBtn">Generate</div>
@@ -30,29 +30,60 @@
       </div>
 
       <div class="options">
-        <input type="checkbox" checked="true" id="uppercase" name="uppercase" />
-        <label for="uppercase">Uppercase letters</label><br />
+        <div class="option">
+          <label for="uppercase">Uppercase letters</label><br />
 
-        <input type="checkbox" checked="true" id="lowercase" name="lowercase" />
-        <label for="lowercase">Lowercase letters</label><br />
+          <input
+            type="checkbox"
+            checked="true"
+            id="uppercase"
+            name="uppercase"
+          />
+        </div>
 
-        <input type="checkbox" checked="true" id="numbers" name="numbers" />
-        <label for="numbers">Numbers</label><br />
+        <hr />
 
-        <input type="checkbox" id="specialChars" name="specialChars" />
-        <label for="specialChars">Special characters</label><br />
+        <div class="option">
+          <label for="lowercase">Lowercase letters</label><br />
 
-        <p>Password length (<span id="sliderValue">16</span>)</p>
-        <input
-          type="range"
-          min="12"
-          max="128"
-          step="1"
-          value="16"
-          id="numCharsSlider"
-        />
+          <input
+            type="checkbox"
+            checked="true"
+            id="lowercase"
+            name="lowercase"
+          />
+        </div>
+
+        <hr />
+
+        <div class="option">
+          <label for="numbers">Numbers</label><br />
+          <input type="checkbox" checked="true" id="numbers" name="numbers" />
+        </div>
+
+        <hr />
+
+        <div class="option">
+          <label for="specialChars">Special characters</label><br />
+          <input type="checkbox" id="specialChars" name="specialChars" />
+        </div>
+
+        <hr />
+
+        <div class="option">
+          <label for="numCharsSlider">Length (<span id="sliderValue">16</span>)</label>
+          <input
+            type="range"
+            min="12"
+            max="128"
+            step="1"
+            value="16"
+            id="numCharsSlider"
+            name="numCharsSlider"
+          />
+        </div>
       </div>
-    </main>
+    </div>
     <script src="./src/js/index.js"></script>
   </body>
 </html>
