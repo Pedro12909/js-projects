@@ -42,11 +42,15 @@ const copyToClipboard = () => {
 };
 
 generateButtonEl.addEventListener('click', generatePassword);
+copyClipboardButtonEl.addEventListener('click', copyToClipboard);
 
 charLengthSliderEl.addEventListener('input', () => {
   charLengthSliderSpanEl.textContent = charLengthSliderEl.value;
+  generatePassword();
 });
-
-copyClipboardButtonEl.addEventListener('click', copyToClipboard);
+optionsUppercaseEl.addEventListener('change', generatePassword);
+optionsLowercaseEl.addEventListener('change', generatePassword);
+optionsNumbersEl.addEventListener('change', generatePassword);
+optionsSpecialCharsEl.addEventListener('change', generatePassword);
 
 generatePassword();
