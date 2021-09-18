@@ -4,12 +4,13 @@
   "description": "A simple password generator",
   "private": "true",
   "scripts": {
-    "dev": "parcel ./index.html",
-    "build": "parcel build ./index.html"
+    "bundle": "parcel build index.html",
+    "build": "docker build -t $npm_package_name:$npm_package_version .",
+    "start": "docker run -d --name $npm_package_name -p 8080:80 $npm_package_name:$npm_package_version"
   },
   "author": "Pedro Portela <pedro12909@hotmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.5"
   }
 }
